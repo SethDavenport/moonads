@@ -1,12 +1,12 @@
 // A function that takes a value of type T and returns a Monad with value
 // type V.
-export type WrappingCallback<T, V> = (T) => Monad<V>;
+type WrappingCallback<T, V> = (T) => Monad<V>;
 
 // A function that takes a value of type T an returns a value of type V.
-export type RawCallback<T, V> = (T) => V;
+type RawCallback<T, V> = (T) => V;
 
 // Is it worth making a functor interface?
-export interface Monad<T> {
+interface Monad<T> {
   bind: <V>(f: WrappingCallback<T, V>) => Monad<V>;
   flatMap: <V>(f: WrappingCallback<T, V>) => Monad<V>; // Same thing as bind
   chain: <V>(f: WrappingCallback<T, V>) => Monad<V>; // Is this where .chain lives?
@@ -17,7 +17,7 @@ export interface Monad<T> {
   fold: <V>(f: RawCallback<T, V>) => V,
 }
 
-export class Identity<T> implements Monad<T> {
+class Identity<T> implements Monad<T> {
   private constructor(private value: T) {}
   
   static of = <V>(value: V): Identity<V> => new Identity<V>(value);
@@ -37,19 +37,32 @@ export class None<T> implements Monad<T> {
   private static _singleton = new None<any>();
 
   static of = <T>() => None._singleton as None<T>
+  static unit = None.of
 
-  // TODO: operations.
+  bind = <V>(f: WrappingCallback<T, V>): Monad<V> => None.of<V>()
+  flatMap = this.bind
+  chain = this.bind
+
+  map = <V>(f: RawCallback<T, V>): Monad<V> => None.of<V>()
+
+  get = (): T => null
+  fold: <V>(f: RawCallback<T, V>) => null
 }
 
 export class Maybe<T> implements Monad<T> {
-  static of = <V>(value: V): Identity<V> =>
+  static of = <V>(value: V): Monad<V> =>
     value === null || value === undefined ?
-    None<T>.of() :
+    None.of<V>() :
     Identity.of(value);
-  static unit = Maybe.of; // What Monet calls of.
+
+  static unit = Maybe.of
 
   // TODO: operations.
 }
+
+// TODO: either.
+// TODO: lists and stuff
+// TODO: future
 
 const getPercent = (wrongCount: number, correctCount: number) =>
   Identity.of(wrongCount + correctCount)
