@@ -1,6 +1,3 @@
-# anchovy
-Typescript Monads with Generics
+# moonads
 
-Because I need to learn how this stuff works. What better way than to implement a crappy one myself?
-
-Generic value types for an extra challenge.
+Typescript monads implemented in an object oriented style. Because I have a weird sense of humour.
