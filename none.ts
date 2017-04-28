@@ -12,6 +12,7 @@ export class None<T> extends Maybe<T> {
   map = <V>(f: Callback<T, V>): Maybe<V> => None.of<V>();
   get = (): T => null;
   fold = <V>(f: Callback<T, V>): V => null;
+  ap = <V>(fm: Monad<Callback<T, V>>): Maybe<V> => None.of<V>();
 
   orElse = (m: Maybe<T>): Maybe<T> => None.of<T>();
   orSome = (value: T): T => value;

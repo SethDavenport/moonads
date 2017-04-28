@@ -17,6 +17,7 @@ export abstract class Maybe<T> implements Monad<T> {
   map: <V>(f: Callback<T, V>) => Maybe<V>;
   get: () => T;
   fold: <V>(f: Callback<T, V>) => V;
+  ap: <V>(fm: Monad<Callback<T, V>>) => Maybe<V>;
 
   orElse: (m: Maybe<T>) => Maybe<T>;
   orSome: (v: T) => T;
