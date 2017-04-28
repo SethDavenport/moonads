@@ -4,5 +4,3 @@ export * from './identity';
 export * from './is-nil';
 export * from './maybe';
 export * from './monad';
-export * from './none';
-export * from './some';
