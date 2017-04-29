@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc node tests.js",
+    "test:watch": "nodemon --ext 'ts,js' tests.js",
     "build": "tsc -p tsconfig.json",
     "lint": "tslint src/**/*.ts"
   },
@@ -26,6 +27,7 @@
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.14",
     "jasmine": "^2.6.0",
+    "nodemon": "^1.11.0",
     "nyc": "^10.2.0",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
@@ -36,7 +38,7 @@
       ".ts"
     ],
     "exclude": [
-      "spec/**/*.spec"
+      "src/**/*.spec.ts"
     ],
     "include": [
       "src/**/*.ts"

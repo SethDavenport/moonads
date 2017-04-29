@@ -1,7 +1,33 @@
 import { Identity } from './identity';
 
 describe('Identity', () => {
-  it('ap should let you partially apply a curried function', () => {
+  it('boxes and unboxes a value', () => expect(
+    Identity
+      .of(3)
+      .get())
+    .toBe(3));
+
+  it('folds a function correctly', () => expect(
+    Identity
+      .of(3)
+      .fold(x => x * 2))
+    .toBe(6));
+
+  it('maps a function correctly', () => expect(
+    Identity
+      .of(3)
+      .map(x => x + 1)
+      .get())
+    .toBe(4));
+
+  it('binds a function correctly', () => expect(
+    Identity
+      .of(3)
+      .bind(x => Identity.of(x + 2))
+      .get())
+    .toBe(5));
+
+  it('can partially apply a curried function', () => {
     const person = forename => surname => address =>
       forename + ' ' + surname + ' lives in ' + address;
 
@@ -9,14 +35,10 @@ describe('Identity', () => {
     const isurname = Identity.of('Baker')
     const iforename = Identity.of('Tom')
 
-    const ifnWithTom = iforename.map(person);
-    const ifnWithTomBaker = iforename.ap(ifnWithTom);
-    const iTheWholeString = ifnWithTomBaker.ap(ifnWithTomBaker);
-
-    console.log(iaddress
+    expect(iaddress
       .ap(
         isurname.ap(
           iforename.map(person)))
-      .get()) ;
-  })
+      .get()).toEqual('Tom Baker lives in Dulwich, London');
+  });
 });
