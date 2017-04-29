@@ -38,3 +38,20 @@ const qGetPercent = async (wrongCount: number, correctCount: number) =>
 console.log('getPercent:', getPercent(3, 4));
 console.log('getPercentWithNamedOperations:', getPercent(3, 4));
 //console.log('qGetPercent:', qGetPercent(3, 4));
+
+const person = forename => surname => address =>
+  forename + " " + surname + " lives in " + address;
+
+var iaddress = Identity.of('Dulwich, London')
+var isurname = Identity.of('Baker')
+var iforename = Identity.of('Tom')
+
+const ifnWithTom = iforename.map(person);
+const ifnWithTomBaker = iforename.ap(ifnWithTom);
+const iTheWholeString = ifnWithTomBaker.ap(ifnWithTomBaker);
+
+console.log(iaddress
+  .ap(
+    isurname.ap(
+      iforename.map(person)))
+  .get()) ;

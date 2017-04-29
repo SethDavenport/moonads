@@ -1,0 +1,45 @@
+{
+  "name": "moonads",
+  "version": "1.0.0",
+  "description": "Generic Monads in Typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc node tests.js",
+    "build": "tsc -p tsconfig.json",
+    "lint": "tslint src/**/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SethDavenport/moonads.git"
+  },
+  "keywords": [
+    "Monads",
+    "Typescript"
+  ],
+  "author": "Seth Davenport",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SethDavenport/moonads/issues"
+  },
+  "homepage": "https://github.com/SethDavenport/moonads#readme",
+  "devDependencies": {
+    "@types/jasmine": "^2.5.47",
+    "@types/node": "^7.0.14",
+    "jasmine": "^2.6.0",
+    "nyc": "^10.2.0",
+    "ts-node": "^3.0.2",
+    "tslint": "^5.1.0",
+    "typescript": "^2.3.1"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "exclude": [
+      "spec/**/*.spec"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ]
+  }
+}
