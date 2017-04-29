@@ -5,8 +5,10 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "scripts": {
+    "pretest": "rm -rf coverage; rm -rf .nyc_output",
     "test": "nyc node tests.js",
     "test:watch": "nodemon --ext 'ts,js' tests.js",
+    "prebuild": "rm -rf lib",
     "build": "tsc -p tsconfig.json",
     "lint": "tslint src/**/*.ts",
     "prepublish": "npm run lint && npm test && npm run build"
