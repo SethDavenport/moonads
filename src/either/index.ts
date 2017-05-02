@@ -1,5 +1,5 @@
 import { Callback } from '../utils/callback';
-import { Monad } from '../utils/monad';
+import { Monad } from '../monad';
 
 // type Either<T, V> = Left<T> | Right<V>;
 
