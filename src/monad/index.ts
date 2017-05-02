@@ -1,9 +1,10 @@
 import { Callback } from '../utils/callback';
 import { Functor } from '../functor';
+import { Setoid } from '../setoid';
 import { isNil } from '../utils/is-nil';
 import * as eq from 'lodash.eq';
 
-export abstract class Monad<T> implements Functor<T> {
+export abstract class Monad<T> implements Functor<T>, Setoid<T> {
   bind: <V, MV extends Monad<V>>(f: Callback<T, MV>) => MV;
   map: <V, MV extends Monad<V>>(f: Callback<T, V>) => MV;
   get: () => T;
@@ -12,7 +13,7 @@ export abstract class Monad<T> implements Functor<T> {
 
   protected constructor(protected value: T) {}
 
-  eq = <M extends Monad<T>>(m: M): boolean =>
+  equals = <M extends Monad<T>>(m: M): boolean =>
     !isNil(m) &&
     this.constructor === m.constructor &&
     eq(this.get(), m.get());

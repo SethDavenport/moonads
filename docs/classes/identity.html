@@ -923,7 +923,7 @@ img { max-width: 100%; }
 					<a href="identity.html#bind" class="tsd-kind-icon">bind</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-					<a href="identity.html#eq" class="tsd-kind-icon">eq</a>
+					<a href="identity.html#equals" class="tsd-kind-icon">equals</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
 					<a href="identity.html#fold" class="tsd-kind-icon">fold</a>
@@ -950,6 +950,9 @@ img { max-width: 100%; }
 		</li>
 		<li class=" tsd-kind-interface tsd-has-type-parameter">
 			<a href="../interfaces/functor.html" class="tsd-kind-icon">Functor</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-has-type-parameter">
+			<a href="../interfaces/setoid.html" class="tsd-kind-icon">Setoid</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
 			<a href="../globals.html#callback" class="tsd-kind-icon">Callback</a>
@@ -1004,6 +1007,7 @@ img { max-width: 100%; }
 			<h3>Implements</h3>
 			<ul class="tsd-hierarchy">
 				<li><a href="../interfaces/functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<li><a href="../interfaces/setoid.html" class="tsd-signature-type">Setoid</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -1027,7 +1031,7 @@ img { max-width: 100%; }
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#ap" class="tsd-kind-icon">ap</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#bind" class="tsd-kind-icon">bind</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="identity.html#eq" class="tsd-kind-icon">eq</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="identity.html#equals" class="tsd-kind-icon">equals</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#fold" class="tsd-kind-icon">fold</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="identity.html#get" class="tsd-kind-icon">get</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#map" class="tsd-kind-icon">map</a></li>
@@ -1050,7 +1054,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="monad.html">Monad</a>.<a href="monad.html#constructor">constructor</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/monad/index.ts#L11">monad/index.ts:11</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/monad/index.ts#L12">monad/index.ts:12</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1073,7 +1077,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="monad.html">Monad</a>.<a href="monad.html#value">value</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/monad/index.ts#L13">monad/index.ts:13</a></li>
+						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/monad/index.ts#L14">monad/index.ts:14</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1091,7 +1095,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#ap">ap</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L31">identity/index.ts:31</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L31">identity/index.ts:31</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1121,7 +1125,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#bind">bind</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L26">identity/index.ts:26</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L26">identity/index.ts:26</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1158,17 +1162,17 @@ img { max-width: 100%; }
 				</ul>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-				<a name="eq" class="tsd-anchor"></a>
-				<h3>eq</h3>
+				<a name="equals" class="tsd-anchor"></a>
+				<h3>equals</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-					<li class="tsd-signature tsd-kind-icon">eq&lt;M&gt;<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">M</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					<li class="tsd-signature tsd-kind-icon">equals&lt;M&gt;<span class="tsd-signature-symbol">(</span>m<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">M</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Inherited from <a href="monad.html">Monad</a>.<a href="monad.html#eq">eq</a></p>
+							<p>Inherited from <a href="monad.html">Monad</a>.<a href="monad.html#equals">equals</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/monad/index.ts#L15">monad/index.ts:15</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/monad/index.ts#L16">monad/index.ts:16</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1198,7 +1202,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#fold">fold</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L30">identity/index.ts:30</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L30">identity/index.ts:30</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1228,7 +1232,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#get">get</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L29">identity/index.ts:29</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L29">identity/index.ts:29</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
@@ -1246,7 +1250,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#map">map</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L28">identity/index.ts:28</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L28">identity/index.ts:28</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1275,7 +1279,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/d6b7347/src/identity/index.ts#L10">identity/index.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/identity/index.ts#L10">identity/index.ts:10</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
