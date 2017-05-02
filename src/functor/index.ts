@@ -1,4 +1,4 @@
-import { Callback } from './callback';
+import { Callback } from '../utils/callback';
 
 export interface Functor<T> {
   // If only typescript supported generified 'polymorphic this'.

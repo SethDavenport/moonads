@@ -11,7 +11,9 @@
     "prebuild": "rm -rf lib",
     "build": "tsc -p tsconfig.json",
     "lint": "tslint src/**/*.ts",
-    "prepublish": "npm run lint && npm test && npm run build"
+    "prepublish": "npm run lint && npm test && npm run build",
+    "predoc": "rm -rf docs/",
+    "doc": "typedoc --out docs --exclude \"**/*.spec.ts\" --excludeExternals --excludePrivate --excludeNotExported -theme minimal --name moonads --mode file --module commonjs src"
   },
   "repository": {
     "type": "git",
@@ -35,6 +37,7 @@
     "nyc": "^10.2.0",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
+    "typedoc": "^0.6.0",
     "typescript": "^2.3.1"
   },
   "nyc": {
@@ -47,5 +50,8 @@
     "include": [
       "src/**/*.ts"
     ]
+  },
+  "dependencies": {
+    "lodash.eq": "^4.0.0"
   }
 }
