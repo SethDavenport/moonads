@@ -1,4 +1,4 @@
-import { Identity } from './identity';
+import { Identity } from '.';
 
 describe('Identity', () => {
   it('boxes and unboxes a value', () => expect(

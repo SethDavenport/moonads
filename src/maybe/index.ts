@@ -1,5 +1,5 @@
 import { Callback } from '../utils/callback';
-import { Monad } from '../utils/monad';
+import { Monad } from '../monad';
 import { isNil } from '../utils/is-nil';
 
 export type Maybe<T> = None<T> | Some<T>;
@@ -9,10 +9,10 @@ export const fromNillable = <T>(value: T): Maybe<T> =>
     None.of<T>() :
     Some.of(value);
 
-export class Some<T> implements Monad<T> {
+export class Some<T> extends Monad<T> {
   static of = <V>(value: V) => new Some<V>(value);
 
-  private constructor(private value: T) {}
+  private constructor(value: T) { super(value); }
 
   bind = <V>(f: Callback<T, Maybe<V>>): Maybe<V> => f(this.value);
   map = <V>(f: Callback<T, V>): Maybe<V> => fromNillable(f(this.value));
@@ -25,12 +25,12 @@ export class Some<T> implements Monad<T> {
   isNone = (): boolean => false;
 }
 
-export class None<T> implements Monad<T> {
+export class None<T> extends Monad<T> {
   private static _singleton = new None<any>();
 
   static of = <V>() => None._singleton as None<V>
 
-  private constructor() {}
+  private constructor() { super(null); }
 
   bind = <V>(f: Callback<T, Maybe<V>>): Maybe<V> => None.of<V>();
   map = <V>(f: Callback<T, V>): Maybe<V> => None.of<V>();

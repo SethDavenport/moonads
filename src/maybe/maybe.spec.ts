@@ -1,4 +1,5 @@
-import { fromNillable, Maybe } from './maybe';
+import { fromNillable, Maybe } from '.';
+import { isEqual } from 'lodash';
 
 describe('Maybe', () => {
   describe('fromNillable', () => {
@@ -24,16 +25,21 @@ describe('Maybe', () => {
   });
 
   describe('Some', () => {
-    const value: String = 'Hello';
-    const some: Maybe<string> = fromNillable('value');
+    const value = 'Hello';
+    const some: Maybe<string> = fromNillable(value);
 
     it('isn\'t none', () => expect(some.isNone()).toBe(false));
     it('returns the value from get', () => expect(some.get()).toBe(value));
     it('returns the value from fold', () => expect(some.fold(() => 'wat')).toBe('wat'));
-    it('returns some from map', () => expect(some.map(() => 'wat'))
-      .toEqual(fromNillable('wat')));
+
+    it('returns some from map', () =>
+      expect(some
+        .map(() => 'wat')
+        .eq(fromNillable('wat'))).toBe(true));
+
     it('returns some from bind', () =>
-      expect(some.bind(() => fromNillable('wat')))
-        .toEqual(fromNillable('wat')));
+      expect(some
+        .bind(() => fromNillable('wat'))
+        .eq(fromNillable('wat'))).toBe(true));
   });
 });
