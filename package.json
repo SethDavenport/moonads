@@ -13,7 +13,7 @@
     "lint": "tslint src/**/*.ts",
     "prepublish": "npm run lint && npm test && npm run build",
     "predoc": "rm -rf docs/",
-    "doc": "typedoc --out docs --exclude \"**/*.spec.ts\" --excludeExternals --excludePrivate --excludeNotExported --ignoreCompilerErrors -theme minimal --name moonads --mode file --module commonjs src"
+    "doc": "typedoc --out docs --exclude \"**/*.spec.ts\" --excludeExternals --excludePrivate --excludeNotExported -theme minimal --name moonads --mode file --module commonjs src"
   },
   "repository": {
     "type": "git",
