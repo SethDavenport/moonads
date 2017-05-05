@@ -1,7 +1,13 @@
 import { Identity } from '../identity';
+import { Maybe } from '../maybe';
 
 describe('Functor Rules', () => {
-  const functorsUnderTest = [ Identity.of(4) ];
+  const functorsUnderTest = [ 
+    Identity.of(4),
+    Maybe.of<number>(null),
+    Maybe.of<number>(undefined),
+    Maybe.of(3),
+  ];
 
   it('satisfies the identity rule', () =>
     functorsUnderTest.forEach(functor =>

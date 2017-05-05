@@ -1,32 +1,32 @@
-import { fromNillable, Maybe } from '.';
+import { Maybe } from '.';
 import { isEqual } from 'lodash';
 
 describe('Maybe', () => {
   describe('fromNillable', () => {
     it('gives you a None if you pass null', () =>
-      expect(fromNillable<number>(null).isNone()).toBe(true));
+      expect(Maybe.of<number>(null).isNone()).toBe(true));
 
     it('gives you a None if you pass undefined', () =>
-      expect(fromNillable<number>(undefined).isNone()).toBe(true));
+      expect(Maybe.of<number>(undefined).isNone()).toBe(true));
 
     it('gives you a Some if you pass something falsy', () =>
-      expect(fromNillable<boolean>(false).isNone()).toBe(false));
+      expect(Maybe.of<boolean>(false).isNone()).toBe(false));
   });
 
   describe('None', () => {
-    const none: Maybe<any> = fromNillable(null);
+    const none = Maybe.of<string>(null);
 
     it('isNone', () => expect(none.isNone()).toBe(true));
     it('returns null from get', () => expect(none.get()).toBeNull());
     it('returns null from fold', () => expect(none.fold(() => 'wat')).toBeNull());
     it('returns none from map', () => expect(none.map(() => 'wat')).toEqual(none));
     it('returns none from bind', () =>
-      expect(none.bind(() => fromNillable('wat'))).toEqual(none));
+      expect(none.bind(() => Maybe.of('wat'))).toEqual(none));
   });
 
   describe('Some', () => {
     const value = 'Hello';
-    const some: Maybe<string> = fromNillable(value);
+    const some = Maybe.of(value);
 
     it('isn\'t none', () => expect(some.isNone()).toBe(false));
     it('returns the value from get', () => expect(some.get()).toBe(value));
@@ -35,11 +35,11 @@ describe('Maybe', () => {
     it('returns some from map', () =>
       expect(some
         .map(() => 'wat')
-        .equals(fromNillable('wat'))).toBe(true));
+        .equals(Maybe.of('wat'))).toBe(true));
 
     it('returns some from bind', () =>
       expect(some
-        .bind(() => fromNillable('wat'))
-        .equals(fromNillable('wat'))).toBe(true));
+        .bind(() => Maybe.of('wat'))
+        .equals(Maybe.of('wat'))).toBe(true));
   });
 });
