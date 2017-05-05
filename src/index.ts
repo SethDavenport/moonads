@@ -1,3 +1,4 @@
+export * from './setoid';
 export * from './functor';
 export * from './monad';
 export * from './identity';

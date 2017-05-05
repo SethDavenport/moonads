@@ -35,11 +35,11 @@ describe('Maybe', () => {
     it('returns some from map', () =>
       expect(some
         .map(() => 'wat')
-        .eq(fromNillable('wat'))).toBe(true));
+        .equals(fromNillable('wat'))).toBe(true));
 
     it('returns some from bind', () =>
       expect(some
         .bind(() => fromNillable('wat'))
-        .eq(fromNillable('wat'))).toBe(true));
+        .equals(fromNillable('wat'))).toBe(true));
   });
 });
