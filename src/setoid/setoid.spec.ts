@@ -13,7 +13,7 @@ describe('Setoid Rules', () => {
     { a: Identity.of(4), b: Identity.of(4) },
     { a: Identity.of(2), b: Identity.of(4) },
     { a: Maybe.of(2),    b: Maybe.of(3) },
-    { a: Maybe.of(null), b: Maybe.of(undefined) }, 
+    { a: Maybe.of(null), b: Maybe.of(undefined) },
   ];
 
   const transitivityTests = [

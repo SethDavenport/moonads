@@ -3,10 +3,6 @@ import { Monad } from '../monad';
 import { isNil } from '../utils/is-nil';
 
 export abstract class Maybe<T> extends Monad<T> {
-  static of = <V>(value: V) => (isNil(value) ?
-    None.of<V>():
-    Some.of<V>(value)) as Maybe<V>;
-
   bind: <V>(f: Callback<T, Maybe<V>>) => Maybe<V>;
   map: <V>(f: Callback<T, V>) => Maybe<V>;
   get: () => T;
@@ -15,13 +11,15 @@ export abstract class Maybe<T> extends Monad<T> {
 
   orElse: (m: Maybe<T>) => Maybe<T>;
   orSome: (value: T) => T;
-  isNone: () =>boolean;
+  isNone: () => boolean;
+
+  static of = <V>(value: V) => (isNil(value) ?
+    None.of<V>() :
+    Some.of<V>(value)) as Maybe<V>;
 }
 
 class Some<T> extends Maybe<T> {
   static of = <V>(value: V) => new Some<V>(value);
-
-  private constructor(value: T) { super(value); }
 
   bind = <V>(f: Callback<T, Maybe<V>>): Maybe<V> => f(this.value);
   map = <V>(f: Callback<T, V>): Maybe<V> => Maybe.of(f(this.value));
@@ -32,6 +30,8 @@ class Some<T> extends Maybe<T> {
   orElse = (m: Maybe<T>): Maybe<T> => m;
   orSome = (value: T): T => this.value;
   isNone = (): boolean => false;
+
+  private constructor(value: T) { super(value); }
 }
 
 class None<T> extends Maybe<T> {

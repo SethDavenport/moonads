@@ -2,7 +2,7 @@ import { Identity } from '../identity';
 import { Maybe } from '../maybe';
 
 describe('Functor Rules', () => {
-  const functorsUnderTest = [ 
+  const functorsUnderTest = [
     Identity.of(4),
     Maybe.of<number>(null),
     Maybe.of<number>(undefined),
