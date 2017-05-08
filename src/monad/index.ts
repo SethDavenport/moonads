@@ -4,6 +4,9 @@ import { Setoid } from '../setoid';
 import { isNil } from '../utils/is-nil';
 import * as eq from 'lodash.eq';
 
+// TODO: split out Apply and Chain interfaces from fantasyland.
+// Applicative is implied in this model due to the static nature
+// of .of().
 export abstract class Monad<T> implements Functor<T>, Setoid<T> {
   bind: <V, MV extends Monad<V>>(f: Callback<T, MV>) => MV;
   map: <V, MV extends Monad<V>>(f: Callback<T, V>) => MV;

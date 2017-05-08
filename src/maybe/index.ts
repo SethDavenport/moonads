@@ -2,20 +2,27 @@ import { Callback } from '../utils/callback';
 import { Monad } from '../monad';
 import { isNil } from '../utils/is-nil';
 
-export type Maybe<T> = None<T> | Some<T>;
+export abstract class Maybe<T> extends Monad<T> {
+  bind: <V>(f: Callback<T, Maybe<V>>) => Maybe<V>;
+  map: <V>(f: Callback<T, V>) => Maybe<V>;
+  get: () => T;
+  fold: <V>(f: Callback<T, V>) => V;
+  ap: <V>(fm: Monad<Callback<T, V>>) => Maybe<V>;
 
-export const fromNillable = <T>(value: T): Maybe<T> =>
-  isNil(value) ?
-    None.of<T>() :
-    Some.of(value);
+  orElse: (m: Maybe<T>) => Maybe<T>;
+  orSome: (value: T) => T;
+  isNone: () => boolean;
 
-export class Some<T> extends Monad<T> {
+  static of = <V>(value: V) => (isNil(value) ?
+    None.of<V>() :
+    Some.of<V>(value)) as Maybe<V>;
+}
+
+class Some<T> extends Maybe<T> {
   static of = <V>(value: V) => new Some<V>(value);
 
-  private constructor(value: T) { super(value); }
-
   bind = <V>(f: Callback<T, Maybe<V>>): Maybe<V> => f(this.value);
-  map = <V>(f: Callback<T, V>): Maybe<V> => fromNillable(f(this.value));
+  map = <V>(f: Callback<T, V>): Maybe<V> => Maybe.of(f(this.value));
   get = (): T => this.value;
   fold = <V>(f: Callback<T, V>): V => f(this.value);
   ap = <V>(fm: Monad<Callback<T, V>>): Maybe<V> => Some.of<V>(fm.get()(this.value));
@@ -23,9 +30,11 @@ export class Some<T> extends Monad<T> {
   orElse = (m: Maybe<T>): Maybe<T> => m;
   orSome = (value: T): T => this.value;
   isNone = (): boolean => false;
+
+  private constructor(value: T) { super(value); }
 }
 
-export class None<T> extends Monad<T> {
+class None<T> extends Maybe<T> {
   private static _singleton = new None<any>();
 
   static of = <V>() => None._singleton as None<V>
