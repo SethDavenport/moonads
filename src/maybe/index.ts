@@ -25,7 +25,8 @@ class Some<T> extends Maybe<T> {
   map = <V>(f: Callback<T, V>): Maybe<V> => Maybe.of(f(this.value));
   get = (): T => this.value;
   fold = <V>(f: Callback<T, V>): V => f(this.value);
-  ap = <V>(fm: Monad<Callback<T, V>>): Maybe<V> => Some.of<V>(fm.get()(this.value));
+  ap = <V>(fm: Maybe<Callback<T, V>>): Maybe<V> =>
+    fm.map(f => f(this.value));
 
   orElse = (m: Maybe<T>): Maybe<T> => m;
   orSome = (value: T): T => this.value;

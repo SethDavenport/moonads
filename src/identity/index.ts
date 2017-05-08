@@ -28,5 +28,6 @@ export class Identity<T> extends Monad<T> {
   map = <V>(f: Callback<T, V>): Identity<V> => Identity.of(f(this.value))
   get = (): T => this.value
   fold = <V>(f: Callback<T, V>): V => f(this.value);
-  ap = <V>(fm: Identity<Callback<T, V>>): Identity<V> => Identity.of(fm.get()(this.value));
+  ap = <V>(fm: Identity<Callback<T, V>>): Identity<V> =>
+    fm.map(f => f(this.value));
 }
