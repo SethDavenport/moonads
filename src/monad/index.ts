@@ -1,13 +1,12 @@
 import { Callback } from '../utils/callback';
 import { Setoid } from '../setoid';
-import { Apply } from '../apply';
+import { Chain } from '../chain';
 import { isNil } from '../utils/is-nil';
 import * as eq from 'lodash.eq';
 
-// TODO: split out Apply and Chain interfaces from fantasyland.
 // Applicative is implied in this model due to the static nature
 // of .of().
-export abstract class Monad<T> implements Setoid<T>, Apply<T> {
+export abstract class Monad<T> implements Setoid<T>, Chain<T> {
   bind: <V, MV extends Monad<V>>(f: Callback<T, MV>) => MV;
   map: <V, MV extends Monad<V>>(f: Callback<T, V>) => MV;
   get: () => T;
