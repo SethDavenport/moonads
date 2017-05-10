@@ -1,5 +1,6 @@
 import { Identity } from '../identity';
 import { Maybe } from '../maybe';
+import { Either } from '../either';
 
 describe('Functor Rules', () => {
   const functorsUnderTest = [
@@ -7,6 +8,8 @@ describe('Functor Rules', () => {
     Maybe.of<number>(null),
     Maybe.of<number>(undefined),
     Maybe.of(3),
+    Either.left(3),
+    Either.right(3),
   ];
 
   it('satisfies the identity rule', () =>

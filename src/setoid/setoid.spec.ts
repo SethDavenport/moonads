@@ -1,5 +1,6 @@
 import { Identity } from '../identity';
 import { Maybe } from '../maybe';
+import { Either } from '../either';
 
 describe('Setoid Rules', () => {
   const reflexivityTests = [
@@ -7,13 +8,21 @@ describe('Setoid Rules', () => {
     Maybe.of<number>(null),
     Maybe.of<number>(undefined),
     Maybe.of(3),
+    Either.left(3),
+    Either.right(3),
   ];
 
   const symmetryTests = [
     { a: Identity.of(4), b: Identity.of(4) },
     { a: Identity.of(2), b: Identity.of(4) },
+    { a: Maybe.of(1),    b: Maybe.of(1) },
     { a: Maybe.of(2),    b: Maybe.of(3) },
     { a: Maybe.of(null), b: Maybe.of(undefined) },
+    { a: Either.left(1), b: Either.left(1) },
+    { a: Either.left(2), b: Either.left(3) },
+    { a: Either.right(1), b: Either.right(1) },
+    { a: Either.right(2), b: Either.right(3) },
+    { a: Either.left(1), b: Either.right(1) },
   ];
 
   const transitivityTests = [
@@ -28,6 +37,12 @@ describe('Setoid Rules', () => {
     { a: Maybe.of(null), b: Maybe.of(undefined), c: Maybe.of(undefined) },
     { a: Maybe.of(1), b: Maybe.of(undefined), c: Maybe.of(undefined) },
     { a: Maybe.of(1), b: Maybe.of(null), c: Maybe.of(undefined) },
+    { a: Either.right(4), b: Either.right(4), c: Either.right(4) },
+    { a: Either.right(2), b: Either.right(3), c: Either.right(3) },
+    { a: Either.right(2), b: Either.right(3), c: Either.right(4) },
+    { a: Either.left(4), b: Either.left(4), c: Either.left(4) },
+    { a: Either.left(2), b: Either.left(3), c: Either.left(3) },
+    { a: Either.left(2), b: Either.left(3), c: Either.left(4) },
   ];
 
   it('satisfies the reflexivity rule for reference equality', () =>
