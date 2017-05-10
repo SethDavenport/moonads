@@ -3,15 +3,15 @@ import { Monad } from '../monad';
 import { isNil } from '../utils/is-nil';
 
 export abstract class Maybe<T> extends Monad<T> {
-  bind: <V>(f: Callback<T, Maybe<V>>) => Maybe<V>;
-  map: <V>(f: Callback<T, V>) => Maybe<V>;
-  get: () => T;
-  fold: <V>(f: Callback<T, V>) => V;
-  ap: <V>(fm: Monad<Callback<T, V>>) => Maybe<V>;
+  abstract bind: <V>(f: Callback<T, Maybe<V>>) => Maybe<V>;
+  abstract map: <V>(f: Callback<T, V>) => Maybe<V>;
+  abstract get: () => T;
+  abstract fold: <V>(f: Callback<T, V>) => V;
+  abstract ap: <V>(fm: Monad<Callback<T, V>>) => Maybe<V>;
 
-  orElse: (m: Maybe<T>) => Maybe<T>;
-  orSome: (value: T) => T;
-  isNone: () => boolean;
+  abstract orElse: (m: Maybe<T>) => Maybe<T>;
+  abstract orSome: (value: T) => T;
+  abstract isNone: () => boolean;
 
   static of = <V>(value: V) => (isNil(value) ?
     None.of<V>() :

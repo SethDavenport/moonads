@@ -1,44 +1,55 @@
 import { Callback } from '../utils/callback';
 import { Monad } from '../monad';
+import { Maybe } from '../maybe';
 
-// type Either<T, V> = Left<T> | Right<V>;
-
-/*
 // Right-biased.
-export class Either<T> implements Monad<T> {
-  //constructor(private left: Monad<T>, private right: Monad<T>) {}
+export abstract class Either<L, R> extends Monad<R> {
+  abstract bind: <V>(f: Callback<L, Either<L, V>>) => Either<L, V>
+  abstract map: <V>(f: Callback<L, V>) => Either<L, V>
+  abstract get: () => R
+  abstract fold: <V>(f: Callback<R, V>) => V
+  abstract ap: <V>(fm: Either<L, Callback<R, V>>) => Either<L, V>
 
-  static left = <V>(value: V) => new Either(Left.of(value), None.of<V>());
-  static right = <V>(value: V) => new Either(None.of<V>(), Right.of(value));
+  abstract isRight: () => boolean
+  abstract isLeft: () => boolean
+  abstract toMaybe: () => Maybe<R>
 
-  bind: <V>(f: Callback<T, Either<V>>) => Either<V>;
-  map: <V>(f: Callback<T, V>) => Left<T> | Right<V>;
-  get: () => T;
-  fold: <V>(f: Callback<T, V>) => V;
-  ap: <V>(fm: Monad<Callback<T, V>>) => Either<V>;
+  static left = <V>(value: V) => Left.of(value);
+  static right = <V>(value: V) => Right.of(value);
 }
 
+export class Left<T> extends Either<T, any> {
+  static of = <V>(value: V): Left<V> => new Left<V>(value)
 
-// TODO: Figure out a type-safe way to reduce redundancy between left, right,
-// identity, some, and none?
-class Left<T> implements Monad<T> {
-  private constructor(private value: T) {}
+  private constructor(value: T) {
+    super(value);
+  }
 
-  static of = <V>(value: V): Left<V> => new Left<V>(value);
+  bind = <V>(f: Callback<T, Either<T, V>>): Either<T, any> => this
+  map = <V>(f: Callback<T, V>): Either<T, any> => this
+  get = (): T => this.value
+  fold = <V>(f: Callback<T, V>): T => this.value
+  ap = <V>(fm: Either<T, Callback<any, V>>): Either<T, any> => this
 
-  // Left short circuits all the ops.  Unfortunately this means
-  // we're returning types of T instead of types of V which
-  // is inconsistent with Right...
-  bind = <V>(f: Callback<T, Either<T, V>>): Left<T> => this;
-  map = <V>(f: Callback<T, V>): Left<T> => this;
-  get = (): T => this.value;
-  fold = <V>(f: Callback<T, V>): T => this.value;
-  ap = <V>(fm: Either<Callback<T, V>>): Left<T> => this;
+  isRight = (): boolean => false
+  isLeft = (): boolean => true
+  toMaybe = (): Maybe<T> => Maybe.of(null)
 }
 
-class Right<T> implements Monad<T> {
-  private constructor(private value: T) {}
+export class Right<T> extends Either<any, T> {
+  static of = <V>(value: V): Right<V> => new Right<V>(value)
 
-  static of = <V>(value: V): Right<V> => new Right<V>(value);
+  private constructor(value: T) {
+    super(value);
+  }
+
+  bind = <V>(f: Callback<T, Either<any, V>>): Either<any, V> => f(this.value)
+  map = <V>(f: Callback<T, V>): Either<any, V> => Right.of(f(this.value))
+  get = (): T => this.value
+  fold = <V>(f: Callback<T, V>): V => f(this.value)
+  ap = <V>(fm: Either<any, Callback<T, V>>): Either<any, V> => fm.map(f => f(this.value))
+
+  isRight = (): boolean => true
+  isLeft = (): boolean => false
+  toMaybe = (): Maybe<T> => Maybe.of(this.value)
 }
-*/
