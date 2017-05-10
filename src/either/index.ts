@@ -3,51 +3,51 @@ import { Monad } from '../monad';
 import { Maybe } from '../maybe';
 
 // Right-biased.
-export abstract class Either<L, R> extends Monad<R> {
-  abstract bind: <V>(f: Callback<L, Either<L, V>>) => Either<L, V>
-  abstract map: <V>(f: Callback<L, V>) => Either<L, V>
-  abstract get: () => R
-  abstract fold: <V>(f: Callback<R, V>) => V
-  abstract ap: <V>(fm: Either<L, Callback<R, V>>) => Either<L, V>
+export abstract class Either<T> extends Monad<T> {
+  abstract bind: <V>(f: Callback<T, Either<V>>) => Either<V>
+  abstract map: <V>(f: Callback<T, V>) => Either<V>
+  abstract get: () => T
+  abstract fold: <V>(f: Callback<T, V>) => V
+  abstract ap: <V>(fm: Either<Callback<T, V>>) => Either<T>
 
   abstract isRight: () => boolean
   abstract isLeft: () => boolean
-  abstract toMaybe: () => Maybe<R>
+  abstract toMaybe: () => Maybe<T>
 
-  static left = <V>(value: V) => Left.of(value);
-  static right = <V>(value: V) => Right.of(value);
+  static left = <L>(value: L) => Left.of(value);
+  static right = <R>(value: R) => Right.of(value);
 }
 
-export class Left<T> extends Either<T, any> {
+export class Left<T> extends Either<T> {
   static of = <V>(value: V): Left<V> => new Left<V>(value)
 
   private constructor(value: T) {
     super(value);
   }
 
-  bind = <V>(f: Callback<T, Either<T, V>>): Either<T, any> => this
-  map = <V>(f: Callback<T, V>): Either<T, any> => this
+  bind = <V>(f: Callback<T, Either<V>>): Either<T> => this
+  map = <V>(f: Callback<T, V>): Either<T> => this
   get = (): T => this.value
   fold = <V>(f: Callback<T, V>): T => this.value
-  ap = <V>(fm: Either<T, Callback<any, V>>): Either<T, any> => this
+  ap = <V>(fm: Either<Callback<T, V>>): Either<T> => this
 
   isRight = (): boolean => false
   isLeft = (): boolean => true
   toMaybe = (): Maybe<T> => Maybe.of(null)
 }
 
-export class Right<T> extends Either<any, T> {
+export class Right<T> extends Either<T> {
   static of = <V>(value: V): Right<V> => new Right<V>(value)
 
   private constructor(value: T) {
     super(value);
   }
 
-  bind = <V>(f: Callback<T, Either<any, V>>): Either<any, V> => f(this.value)
-  map = <V>(f: Callback<T, V>): Either<any, V> => Right.of(f(this.value))
+  bind = <V>(f: Callback<T, Either<V>>): Either<V> => f(this.value)
+  map = <V>(f: Callback<T, V>): Either<V> => Right.of(f(this.value))
   get = (): T => this.value
   fold = <V>(f: Callback<T, V>): V => f(this.value)
-  ap = <V>(fm: Either<any, Callback<T, V>>): Either<any, V> => fm.map(f => f(this.value))
+  ap = <V>(fm: Either<Callback<T, V>>): Either<V> => fm.map(f => f(this.value))
 
   isRight = (): boolean => true
   isLeft = (): boolean => false

@@ -1,5 +1,6 @@
 import { Identity } from '../identity';
 import { Maybe } from '../maybe';
+import { Either } from '../either';
 import { Callback } from '../utils/callback';
 
 describe('Apply Rules', () => {
@@ -14,6 +15,13 @@ describe('Apply Rules', () => {
     { a: Maybe.of(addFour), u: Maybe.of(double), v: Maybe.of<number>(undefined) },
     { a: Maybe.of<Callback<number, number>>(null), u: Maybe.of(double), v: Maybe.of(7) },
     { a: Maybe.of(addFour), u: Maybe.of<Callback<number, number>>(undefined), v: Maybe.of(7) },
+    { a: Either.right(addFour), u: Either.right(double), v: Either.right(7) },
+    { a: Either.left(addFour), u: Either.left(double), v: Either.left(7) },
+    { a: Either.right(addFour), u: Either.right(double), v: Either.left(7) },
+    { a: Either.right(addFour), u: Either.left(double), v: Either.left(7) },
+    { a: Either.left(addFour), u: Either.left(double), v: Either.right(7) },
+    { a: Either.left(addFour), u: Either.right(double), v: Either.right(7) },
+    { a: Either.left(addFour), u: Either.right(double), v: Either.left(7) },
   ];
 
   // v.ap(u.ap(a.map(f => g => x => f(g(x))))) == v.ap(u).ap(a)
