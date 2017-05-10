@@ -9,6 +9,6 @@ TODO
 * [ ] Future
 * [ ] IO
 * [ ] List
-* [ ] Rename callback -> transform
-* [ ] readonly all the things.
+* [x] Rename callback -> transform
+* [x] readonly all the things.
 * [ ] Monad rules?

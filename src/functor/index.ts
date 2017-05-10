@@ -1,5 +1,5 @@
-import { Callback } from '../utils/callback';
+import { Transform } from '../utils/transform';
 
 export interface Functor<T> {
-  map: <V, FV extends Functor<V>>(f: Callback<T, V>) => FV;
+  readonly map: <V, FV extends Functor<V>>(f: Transform<T, V>) => FV;
 }
