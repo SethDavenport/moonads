@@ -1,4 +1,4 @@
-import { Either } from '../Either';
+import { Either } from './';
 
 describe('Either', () => {
   const left = Either.left(8);
