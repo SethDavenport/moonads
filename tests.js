@@ -1,4 +1,5 @@
 require('ts-node/register');
+const { SpecReporter } = require('jasmine-spec-reporter');
 const Jasmine = require('jasmine');
 
 const runner = new Jasmine();
@@ -10,4 +11,6 @@ runner.loadConfig({
   spec_files: [ '**/*.spec.ts' ]
 });
 
+runner.clearReporters();
+runner.addReporter(new SpecReporter());
 runner.execute();

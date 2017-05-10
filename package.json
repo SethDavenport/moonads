@@ -4,6 +4,7 @@
   "description": "Generic Monads in Typescript",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
+  "engines" : { "node" : ">=6" },
   "scripts": {
     "pretest": "rm -rf coverage; rm -rf .nyc_output",
     "test": "nyc node tests.js",
@@ -33,12 +34,16 @@
     "@types/jasmine": "^2.5.47",
     "@types/node": "^7.0.14",
     "jasmine": "^2.6.0",
+    "jasmine-spec-reporter": "^4.1.0",
     "nodemon": "^1.11.0",
     "nyc": "^10.2.0",
     "ts-node": "^3.0.2",
     "tslint": "^5.1.0",
     "typedoc": "^0.6.0",
     "typescript": "^2.3.1"
+  },
+  "dependencies": {
+    "lodash.eq": "^4.0.0"
   },
   "nyc": {
     "extension": [
@@ -50,8 +55,5 @@
     "include": [
       "src/**/*.ts"
     ]
-  },
-  "dependencies": {
-    "lodash.eq": "^4.0.0"
   }
 }
