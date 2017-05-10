@@ -1,6 +1,6 @@
-import { Callback } from '../utils/callback';
+import { Transform } from '../utils/transform';
 import { Apply } from '../apply';
 
 export interface Chain<T> {
-  bind: <V, CV extends Chain<V>>(f: Callback<T, CV>) => CV;
+  readonly bind: <V, CV extends Chain<V>>(f: Transform<T, CV>) => CV;
 }

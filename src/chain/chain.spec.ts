@@ -1,6 +1,6 @@
 import { Identity } from '../identity';
 import { Maybe } from '../maybe';
-import { Callback } from '../utils/callback';
+import { Transform } from '../utils/Transform';
 import { Either } from '../either';
 
 describe('Chain Rules', () => {

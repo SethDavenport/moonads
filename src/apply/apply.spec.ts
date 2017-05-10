@@ -1,7 +1,7 @@
 import { Identity } from '../identity';
 import { Maybe } from '../maybe';
 import { Either } from '../either';
-import { Callback } from '../utils/callback';
+import { Transform } from '../utils/transform';
 
 describe('Apply Rules', () => {
   const double = x => 2 * x;
@@ -13,8 +13,8 @@ describe('Apply Rules', () => {
     { a: Maybe.of(addFour), u: Maybe.of(double), v: Maybe.of(7) },
     { a: Maybe.of(addFour), u: Maybe.of(double), v: Maybe.of<number>(null) },
     { a: Maybe.of(addFour), u: Maybe.of(double), v: Maybe.of<number>(undefined) },
-    { a: Maybe.of<Callback<number, number>>(null), u: Maybe.of(double), v: Maybe.of(7) },
-    { a: Maybe.of(addFour), u: Maybe.of<Callback<number, number>>(undefined), v: Maybe.of(7) },
+    { a: Maybe.of<Transform<number, number>>(null), u: Maybe.of(double), v: Maybe.of(7) },
+    { a: Maybe.of(addFour), u: Maybe.of<Transform<number, number>>(undefined), v: Maybe.of(7) },
     { a: Either.right(addFour), u: Either.right(double), v: Either.right(7) },
     { a: Either.left(addFour), u: Either.left(double), v: Either.left(7) },
     { a: Either.right(addFour), u: Either.right(double), v: Either.left(7) },

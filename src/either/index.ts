@@ -1,39 +1,39 @@
-import { Callback } from '../utils/callback';
+import { Transform } from '../utils/transform';
 import { Monad } from '../monad';
 import { Maybe } from '../maybe';
 
 // Right-biased.
 export abstract class Either<T> extends Monad<T> {
-  abstract bind: <V>(f: Callback<T, Either<V>>) => Either<V>
-  abstract map: <V>(f: Callback<T, V>) => Either<V>
-  abstract get: () => T
-  abstract fold: <V>(f: Callback<T, V>) => V
-  abstract ap: <V>(fm: Either<Callback<T, V>>) => Either<T>
+  abstract readonly bind: <V>(f: Transform<T, Either<V>>) => Either<V>
+  abstract readonly map: <V>(f: Transform<T, V>) => Either<V>
+  abstract readonly get: () => T
+  abstract readonly fold: <V>(f: Transform<T, V>) => V
+  abstract readonly ap: <V>(fm: Either<Transform<T, V>>) => Either<T>
 
-  abstract isRight: () => boolean
-  abstract isLeft: () => boolean
-  abstract toMaybe: () => Maybe<T>
+  abstract readonly isRight: () => boolean
+  abstract readonly isLeft: () => boolean
+  abstract readonly toMaybe: () => Maybe<T>
 
-  static left = <L>(value: L) => Left.of(value);
-  static right = <R>(value: R) => Right.of(value);
+  static readonly left = <L>(value: L) => Left.of(value);
+  static readonly right = <R>(value: R) => Right.of(value);
 }
 
 export class Left<T> extends Either<T> {
-  static of = <V>(value: V): Left<V> => new Left<V>(value)
+  static readonly of = <V>(value: V): Left<V> => new Left<V>(value)
 
   private constructor(value: T) {
     super(value);
   }
 
-  bind = <V>(f: Callback<T, Either<V>>): Either<T> => this
-  map = <V>(f: Callback<T, V>): Either<T> => this
-  get = (): T => this.value
-  fold = <V>(f: Callback<T, V>): T => this.value
-  ap = <V>(fm: Either<Callback<T, V>>): Either<T> => this
+  readonly bind = <V>(f: Transform<T, Either<V>>): Either<T> => this
+  readonly map = <V>(f: Transform<T, V>): Either<T> => this
+  readonly get = (): T => this.value
+  readonly fold = <V>(f: Transform<T, V>): T => this.value
+  readonly ap = <V>(fm: Either<Transform<T, V>>): Either<T> => this
 
-  isRight = (): boolean => false
-  isLeft = (): boolean => true
-  toMaybe = (): Maybe<T> => Maybe.of(null)
+  readonly isRight = (): boolean => false
+  readonly isLeft = (): boolean => true
+  readonly toMaybe = (): Maybe<T> => Maybe.of(null)
 }
 
 export class Right<T> extends Either<T> {
@@ -43,13 +43,13 @@ export class Right<T> extends Either<T> {
     super(value);
   }
 
-  bind = <V>(f: Callback<T, Either<V>>): Either<V> => f(this.value)
-  map = <V>(f: Callback<T, V>): Either<V> => Right.of(f(this.value))
-  get = (): T => this.value
-  fold = <V>(f: Callback<T, V>): V => f(this.value)
-  ap = <V>(fm: Either<Callback<T, V>>): Either<V> => fm.map(f => f(this.value))
+  readonly bind = <V>(f: Transform<T, Either<V>>): Either<V> => f(this.value)
+  readonly map = <V>(f: Transform<T, V>): Either<V> => Right.of(f(this.value))
+  readonly get = (): T => this.value
+  readonly fold = <V>(f: Transform<T, V>): V => f(this.value)
+  readonly ap = <V>(fm: Either<Transform<T, V>>): Either<V> => fm.map(f => f(this.value))
 
-  isRight = (): boolean => true
-  isLeft = (): boolean => false
-  toMaybe = (): Maybe<T> => Maybe.of(this.value)
+  readonly isRight = (): boolean => true
+  readonly isLeft = (): boolean => false
+  readonly toMaybe = (): Maybe<T> => Maybe.of(this.value)
 }
