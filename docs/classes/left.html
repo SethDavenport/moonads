@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Identity | moonads</title>
+	<title>Left | moonads</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -910,40 +910,55 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="either.html" class="tsd-kind-icon">Either</a>
 		</li>
-		<li class="current tsd-kind-class tsd-has-type-parameter">
+		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="identity.html" class="tsd-kind-icon">Identity</a>
+		</li>
+		<li class="current tsd-kind-class tsd-has-type-parameter">
+			<a href="left.html" class="tsd-kind-icon">Left</a>
 			<ul>
 				<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a href="identity.html#constructor" class="tsd-kind-icon">constructor</a>
+					<a href="left.html#constructor" class="tsd-kind-icon">constructor</a>
 				</li>
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<a href="identity.html#value" class="tsd-kind-icon">value</a>
+					<a href="left.html#value" class="tsd-kind-icon">value</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<a href="identity.html#ap" class="tsd-kind-icon">ap</a>
+					<a href="left.html#ap" class="tsd-kind-icon">ap</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<a href="identity.html#bind" class="tsd-kind-icon">bind</a>
+					<a href="left.html#bind" class="tsd-kind-icon">bind</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-					<a href="identity.html#equals" class="tsd-kind-icon">equals</a>
+					<a href="left.html#equals" class="tsd-kind-icon">equals</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<a href="identity.html#fold" class="tsd-kind-icon">fold</a>
+					<a href="left.html#fold" class="tsd-kind-icon">fold</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-					<a href="identity.html#get" class="tsd-kind-icon">get</a>
+					<a href="left.html#get" class="tsd-kind-icon">get</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a href="left.html#isleft" class="tsd-kind-icon">is<wbr>Left</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a href="left.html#isright" class="tsd-kind-icon">is<wbr>Right</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<a href="identity.html#map" class="tsd-kind-icon">map</a>
+					<a href="left.html#map" class="tsd-kind-icon">map</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<a href="left.html#tomaybe" class="tsd-kind-icon">to<wbr>Maybe</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+					<a href="left.html#left-1" class="tsd-kind-icon">left</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<a href="identity.html#of" class="tsd-kind-icon">of</a>
+					<a href="left.html#of" class="tsd-kind-icon">of</a>
+				</li>
+				<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+					<a href="left.html#right" class="tsd-kind-icon">right</a>
 				</li>
 			</ul>
-		</li>
-		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="left.html" class="tsd-kind-icon">Left</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="maybe.html" class="tsd-kind-icon">Maybe</a>
@@ -976,23 +991,11 @@ img { max-width: 100%; }
 </nav>
 <div class="container container-main">
 	<div class="content-wrap">
-		<section class="tsd-panel tsd-comment">
-			<div class="tsd-comment tsd-typography">
-				<div class="lead">
-					<p>Simply wraps a value in a monadic interface.</p>
-				</div>
-			</div>
-		</section>
 		<section class="tsd-panel tsd-type-parameters">
 			<h3>Type parameters</h3>
 			<ul class="tsd-type-parameters">
 				<li>
 					<h4>T</h4>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The type of the wrapped value.</p>
-						</div>
-					</div>
 				</li>
 			</ul>
 		</section>
@@ -1000,10 +1003,10 @@ img { max-width: 100%; }
 			<h3>Hierarchy</h3>
 			<ul class="tsd-hierarchy">
 				<li>
-					<a href="monad.html" class="tsd-signature-type">Monad</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
+					<a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>
 					<ul class="tsd-hierarchy">
 						<li>
-							<span class="target">Identity</span>
+							<span class="target">Left</span>
 						</li>
 					</ul>
 				</li>
@@ -1023,25 +1026,30 @@ img { max-width: 100%; }
 					<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 						<h3>Constructors</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="identity.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="left.html#constructor" class="tsd-kind-icon">constructor</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected">
 						<h3>Properties</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="identity.html#value" class="tsd-kind-icon">value</a></li>
+							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected"><a href="left.html#value" class="tsd-kind-icon">value</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Methods</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#ap" class="tsd-kind-icon">ap</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#bind" class="tsd-kind-icon">bind</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="identity.html#equals" class="tsd-kind-icon">equals</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#fold" class="tsd-kind-icon">fold</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="identity.html#get" class="tsd-kind-icon">get</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="identity.html#map" class="tsd-kind-icon">map</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="identity.html#of" class="tsd-kind-icon">of</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="left.html#ap" class="tsd-kind-icon">ap</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="left.html#bind" class="tsd-kind-icon">bind</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="left.html#equals" class="tsd-kind-icon">equals</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="left.html#fold" class="tsd-kind-icon">fold</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="left.html#get" class="tsd-kind-icon">get</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="left.html#isleft" class="tsd-kind-icon">is<wbr>Left</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="left.html#isright" class="tsd-kind-icon">is<wbr>Right</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite"><a href="left.html#map" class="tsd-kind-icon">map</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="left.html#tomaybe" class="tsd-kind-icon">to<wbr>Maybe</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="left.html#left-1" class="tsd-kind-icon">left</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static"><a href="left.html#of" class="tsd-kind-icon">of</a></li>
+							<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static"><a href="left.html#right" class="tsd-kind-icon">right</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1053,7 +1061,7 @@ img { max-width: 100%; }
 				<a name="constructor" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagProtected">Protected</span> constructor</h3>
 				<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited tsd-is-protected">
-					<li class="tsd-signature tsd-kind-icon">new <wbr>Identity<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a></li>
+					<li class="tsd-signature tsd-kind-icon">new <wbr>Left<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="left.html" class="tsd-signature-type">Left</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
@@ -1069,7 +1077,7 @@ img { max-width: 100%; }
 								<h5>value: <span class="tsd-signature-type">T</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="identity.html" class="tsd-signature-type">Identity</a></h4>
+						<h4 class="tsd-returns-title">Returns <a href="left.html" class="tsd-signature-type">Left</a></h4>
 					</li>
 				</ul>
 			</section>
@@ -1094,14 +1102,14 @@ img { max-width: 100%; }
 				<a name="ap" class="tsd-anchor"></a>
 				<h3>ap</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">ap&lt;V&gt;<span class="tsd-signature-symbol">(</span>fm<span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">ap&lt;V&gt;<span class="tsd-signature-symbol">(</span>fm<span class="tsd-signature-symbol">: </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#ap">ap</a></p>
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#ap">ap</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L20">identity/index.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L32">either/index.ts:32</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1113,10 +1121,10 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>fm: <a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>fm: <a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1124,14 +1132,14 @@ img { max-width: 100%; }
 				<a name="bind" class="tsd-anchor"></a>
 				<h3>bind</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">bind&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">bind&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#bind">bind</a></p>
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#bind">bind</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L16">identity/index.ts:16</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L28">either/index.ts:28</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1143,10 +1151,10 @@ img { max-width: 100%; }
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>f: <a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								<h5>f: <a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1184,14 +1192,14 @@ img { max-width: 100%; }
 				<a name="fold" class="tsd-anchor"></a>
 				<h3>fold</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">fold&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span></li>
+					<li class="tsd-signature tsd-kind-icon">fold&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#fold">fold</a></p>
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#fold">fold</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L19">identity/index.ts:19</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L31">either/index.ts:31</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1206,7 +1214,7 @@ img { max-width: 100%; }
 								<h5>f: <a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">V</span></h4>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1219,12 +1227,48 @@ img { max-width: 100%; }
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#get">get</a></p>
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#get">get</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L18">identity/index.ts:18</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L30">either/index.ts:30</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<a name="isleft" class="tsd-anchor"></a>
+				<h3>is<wbr>Left</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Left<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#isleft">isLeft</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L35">either/index.ts:35</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<a name="isright" class="tsd-anchor"></a>
+				<h3>is<wbr>Right</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">is<wbr>Right<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#isright">isRight</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L34">either/index.ts:34</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1232,14 +1276,14 @@ img { max-width: 100%; }
 				<a name="map" class="tsd-anchor"></a>
 				<h3>map</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-overwrite">
-					<li class="tsd-signature tsd-kind-icon">map&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">map&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
-							<p>Overrides <a href="monad.html">Monad</a>.<a href="monad.html#map">map</a></p>
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#map">map</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L17">identity/index.ts:17</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L29">either/index.ts:29</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1254,7 +1298,55 @@ img { max-width: 100%; }
 								<h5>f: <a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<a name="tomaybe" class="tsd-anchor"></a>
+				<h3>to<wbr>Maybe</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<li class="tsd-signature tsd-kind-icon">to<wbr>Maybe<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="maybe.html" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Overrides <a href="either.html">Either</a>.<a href="either.html#tomaybe">toMaybe</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L36">either/index.ts:36</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-returns-title">Returns <a href="maybe.html" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+				<a name="left-1" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> left</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">left&lt;L&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="left.html" class="tsd-signature-type">Left</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="either.html">Either</a>.<a href="either.html#left">left</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L17">either/index.ts:17</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>L</h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>value: <span class="tsd-signature-type">L</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="left.html" class="tsd-signature-type">Left</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">L</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1262,13 +1354,13 @@ img { max-width: 100%; }
 				<a name="of" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagStatic">Static</span> of</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-static">
-					<li class="tsd-signature tsd-kind-icon">of&lt;V&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<li class="tsd-signature tsd-kind-icon">of&lt;V&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="left.html" class="tsd-signature-type">Left</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/identity/index.ts#L10">identity/index.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L22">either/index.ts:22</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1283,7 +1375,37 @@ img { max-width: 100%; }
 								<h5>value: <span class="tsd-signature-type">V</span></h5>
 							</li>
 						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="identity.html" class="tsd-signature-type">Identity</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						<h4 class="tsd-returns-title">Returns <a href="left.html" class="tsd-signature-type">Left</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+				<a name="right" class="tsd-anchor"></a>
+				<h3><span class="tsd-flag ts-flagStatic">Static</span> right</h3>
+				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited tsd-is-static">
+					<li class="tsd-signature tsd-kind-icon">right&lt;R&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="right.html" class="tsd-signature-type">Right</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></li>
+				</ul>
+				<ul class="tsd-descriptions">
+					<li class="tsd-description">
+						<aside class="tsd-sources">
+							<p>Inherited from <a href="either.html">Either</a>.<a href="either.html#right">right</a></p>
+							<ul>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/either/index.ts#L18">either/index.ts:18</a></li>
+							</ul>
+						</aside>
+						<h4 class="tsd-type-parameters-title">Type parameters</h4>
+						<ul class="tsd-type-parameters">
+							<li>
+								<h4>R</h4>
+							</li>
+						</ul>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>value: <span class="tsd-signature-type">R</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <a href="right.html" class="tsd-signature-type">Right</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">&gt;</span></h4>
 					</li>
 				</ul>
 			</section>

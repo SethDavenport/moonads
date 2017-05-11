@@ -908,16 +908,28 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="../classes/either.html" class="tsd-kind-icon">Either</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="../classes/identity.html" class="tsd-kind-icon">Identity</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="../classes/left.html" class="tsd-kind-icon">Left</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="../classes/maybe.html" class="tsd-kind-icon">Maybe</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="../classes/monad.html" class="tsd-kind-icon">Monad</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="../classes/none.html" class="tsd-kind-icon">None</a>
+			<a href="../classes/right.html" class="tsd-kind-icon">Right</a>
 		</li>
-		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="../classes/some.html" class="tsd-kind-icon">Some</a>
+		<li class=" tsd-kind-interface tsd-has-type-parameter">
+			<a href="apply.html" class="tsd-kind-icon">Apply</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-has-type-parameter">
+			<a href="chain.html" class="tsd-kind-icon">Chain</a>
 		</li>
 		<li class="current tsd-kind-interface tsd-has-type-parameter">
 			<a href="functor.html" class="tsd-kind-icon">Functor</a>
@@ -931,13 +943,7 @@ img { max-width: 100%; }
 			<a href="setoid.html" class="tsd-kind-icon">Setoid</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#callback" class="tsd-kind-icon">Callback</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="../globals.html#maybe" class="tsd-kind-icon">Maybe</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="../globals.html#fromnillable" class="tsd-kind-icon">from<wbr>Nillable</a>
+			<a href="../globals.html#transform" class="tsd-kind-icon">Transform</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="../globals.html#isnil" class="tsd-kind-icon">is<wbr>Nil</a>
@@ -959,16 +965,12 @@ img { max-width: 100%; }
 			<ul class="tsd-hierarchy">
 				<li>
 					<span class="target">Functor</span>
+					<ul class="tsd-hierarchy">
+						<li>
+							<a href="apply.html" class="tsd-signature-type">Apply</a>
+						</li>
+					</ul>
 				</li>
-			</ul>
-		</section>
-		<section class="tsd-panel">
-			<h3>Implemented by</h3>
-			<ul class="tsd-hierarchy">
-				<li><a href="../classes/identity.html" class="tsd-signature-type">Identity</a></li>
-				<li><a href="../classes/monad.html" class="tsd-signature-type">Monad</a></li>
-				<li><a href="../classes/none.html" class="tsd-signature-type">None</a></li>
-				<li><a href="../classes/some.html" class="tsd-signature-type">Some</a></li>
 			</ul>
 		</section>
 		<section class="tsd-panel-group tsd-index-group">
@@ -992,7 +994,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/functor/index.ts#L9">functor/index.ts:9</a></li>
+						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/functor/index.ts#L4">functor/index.ts:4</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1000,7 +1002,7 @@ img { max-width: 100%; }
 					<ul class="tsd-parameters">
 						<li class="tsd-parameter-siganture">
 							<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-has-type-parameter tsd-is-not-exported">
-								<li class="tsd-signature tsd-kind-icon">&lt;V&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#callback" class="tsd-signature-type">Callback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></li>
+								<li class="tsd-signature tsd-kind-icon">&lt;V, FV&gt;<span class="tsd-signature-symbol">(</span>f<span class="tsd-signature-symbol">: </span><a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FV</span></li>
 							</ul>
 							<ul class="tsd-descriptions">
 								<li class="tsd-description">
@@ -1009,14 +1011,17 @@ img { max-width: 100%; }
 										<li>
 											<h4>V</h4>
 										</li>
+										<li>
+											<h4>FV<span class="tsd-signature-symbol">: </span><a href="functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+										</li>
 									</ul>
 									<h4 class="tsd-parameters-title">Parameters</h4>
 									<ul class="tsd-parameters">
 										<li>
-											<h5>f: <a href="../globals.html#callback" class="tsd-signature-type">Callback</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
+											<h5>f: <a href="../globals.html#transform" class="tsd-signature-type">Transform</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
 										</li>
 									</ul>
-									<h4 class="tsd-returns-title">Returns <a href="functor.html" class="tsd-signature-type">Functor</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h4>
+									<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">FV</span></h4>
 								</li>
 							</ul>
 						</li>

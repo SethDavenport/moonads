@@ -908,16 +908,28 @@ img { max-width: 100%; }
 <nav class="tsd-navigation secondary">
 	<ul>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="classes/either.html" class="tsd-kind-icon">Either</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="classes/identity.html" class="tsd-kind-icon">Identity</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="classes/left.html" class="tsd-kind-icon">Left</a>
+		</li>
+		<li class=" tsd-kind-class tsd-has-type-parameter">
+			<a href="classes/maybe.html" class="tsd-kind-icon">Maybe</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
 			<a href="classes/monad.html" class="tsd-kind-icon">Monad</a>
 		</li>
 		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="classes/none.html" class="tsd-kind-icon">None</a>
+			<a href="classes/right.html" class="tsd-kind-icon">Right</a>
 		</li>
-		<li class=" tsd-kind-class tsd-has-type-parameter">
-			<a href="classes/some.html" class="tsd-kind-icon">Some</a>
+		<li class=" tsd-kind-interface tsd-has-type-parameter">
+			<a href="interfaces/apply.html" class="tsd-kind-icon">Apply</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-has-type-parameter">
+			<a href="interfaces/chain.html" class="tsd-kind-icon">Chain</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-has-type-parameter">
 			<a href="interfaces/functor.html" class="tsd-kind-icon">Functor</a>
@@ -926,13 +938,7 @@ img { max-width: 100%; }
 			<a href="interfaces/setoid.html" class="tsd-kind-icon">Setoid</a>
 		</li>
 		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#callback" class="tsd-kind-icon">Callback</a>
-		</li>
-		<li class=" tsd-kind-type-alias">
-			<a href="globals.html#maybe" class="tsd-kind-icon">Maybe</a>
-		</li>
-		<li class=" tsd-kind-function tsd-has-type-parameter">
-			<a href="globals.html#fromnillable" class="tsd-kind-icon">from<wbr>Nillable</a>
+			<a href="globals.html#transform" class="tsd-kind-icon">Transform</a>
 		</li>
 		<li class=" tsd-kind-function">
 			<a href="globals.html#isnil" class="tsd-kind-icon">is<wbr>Nil</a>
@@ -947,10 +953,13 @@ img { max-width: 100%; }
 			<p>This is a personal learning exercise and is totally incomplete. Don&#39;t use it; I&#39;m not supporting it.</p>
 			<p>TODO</p>
 			<ul>
-				<li>[ ] Either</li>
+				<li>[x] Either</li>
 				<li>[ ] Future</li>
 				<li>[ ] IO</li>
 				<li>[ ] List</li>
+				<li>[x] Rename callback -&gt; transform</li>
+				<li>[x] readonly all the things.</li>
+				<li>[ ] Monad rules?</li>
 			</ul>
 		</div>
 		<div style="position:relative;"><a name="typedoc-main-index" class="tsd-anchor"></a></div>
@@ -961,15 +970,19 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Classes</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/either.html" class="tsd-kind-icon">Either</a></li>
 							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/identity.html" class="tsd-kind-icon">Identity</a></li>
+							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/left.html" class="tsd-kind-icon">Left</a></li>
+							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/maybe.html" class="tsd-kind-icon">Maybe</a></li>
 							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/monad.html" class="tsd-kind-icon">Monad</a></li>
-							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/none.html" class="tsd-kind-icon">None</a></li>
-							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/some.html" class="tsd-kind-icon">Some</a></li>
+							<li class="tsd-kind-class tsd-has-type-parameter"><a href="classes/right.html" class="tsd-kind-icon">Right</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Interfaces</h3>
 						<ul class="tsd-index-list">
+							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/apply.html" class="tsd-kind-icon">Apply</a></li>
+							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/chain.html" class="tsd-kind-icon">Chain</a></li>
 							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/functor.html" class="tsd-kind-icon">Functor</a></li>
 							<li class="tsd-kind-interface tsd-has-type-parameter"><a href="interfaces/setoid.html" class="tsd-kind-icon">Setoid</a></li>
 						</ul>
@@ -977,14 +990,12 @@ img { max-width: 100%; }
 					<section class="tsd-index-section ">
 						<h3>Type aliases</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-type-alias"><a href="globals.html#callback" class="tsd-kind-icon">Callback</a></li>
-							<li class="tsd-kind-type-alias"><a href="globals.html#maybe" class="tsd-kind-icon">Maybe</a></li>
+							<li class="tsd-kind-type-alias"><a href="globals.html#transform" class="tsd-kind-icon">Transform</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section ">
 						<h3>Functions</h3>
 						<ul class="tsd-index-list">
-							<li class="tsd-kind-function tsd-has-type-parameter"><a href="globals.html#fromnillable" class="tsd-kind-icon">from<wbr>Nillable</a></li>
 							<li class="tsd-kind-function"><a href="globals.html#isnil" class="tsd-kind-icon">is<wbr>Nil</a></li>
 						</ul>
 					</section>
@@ -994,12 +1005,12 @@ img { max-width: 100%; }
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Type aliases</h2>
 			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="callback" class="tsd-anchor"></a>
-				<h3>Callback</h3>
-				<div class="tsd-signature tsd-kind-icon">Callback<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
+				<a name="transform" class="tsd-anchor"></a>
+				<h3>Transform</h3>
+				<div class="tsd-signature tsd-kind-icon">Transform<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/utils/callback.ts#L1">utils/callback.ts:1</a></li>
+						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/utils/transform.ts#L1">utils/transform.ts:1</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-type-declaration">
@@ -1024,48 +1035,9 @@ img { max-width: 100%; }
 					</ul>
 				</div>
 			</section>
-			<section class="tsd-panel tsd-member tsd-kind-type-alias">
-				<a name="maybe" class="tsd-anchor"></a>
-				<h3>Maybe</h3>
-				<div class="tsd-signature tsd-kind-icon">Maybe<span class="tsd-signature-symbol">:</span> <a href="classes/none.html" class="tsd-signature-type">None</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="classes/some.html" class="tsd-signature-type">Some</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
-				<aside class="tsd-sources">
-					<ul>
-						<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/maybe/index.ts#L5">maybe/index.ts:5</a></li>
-					</ul>
-				</aside>
-			</section>
 		</section>
 		<section class="tsd-panel-group tsd-member-group ">
 			<h2>Functions</h2>
-			<section class="tsd-panel tsd-member tsd-kind-function tsd-has-type-parameter">
-				<a name="fromnillable" class="tsd-anchor"></a>
-				<h3>from<wbr>Nillable</h3>
-				<ul class="tsd-signatures tsd-kind-function tsd-has-type-parameter">
-					<li class="tsd-signature tsd-kind-icon">from<wbr>Nillable&lt;T&gt;<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="globals.html#maybe" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/maybe/index.ts#L7">maybe/index.ts:7</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-type-parameters-title">Type parameters</h4>
-						<ul class="tsd-type-parameters">
-							<li>
-								<h4>T</h4>
-							</li>
-						</ul>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5>value: <span class="tsd-signature-type">T</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <a href="globals.html#maybe" class="tsd-signature-type">Maybe</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-member tsd-kind-function">
 				<a name="isnil" class="tsd-anchor"></a>
 				<h3>is<wbr>Nil</h3>
@@ -1076,7 +1048,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/c204557/src/utils/is-nil.ts#L1">utils/is-nil.ts:1</a></li>
+								<li>Defined in <a href="https://github.com/SethDavenport/anchovy/blob/e81c3ea/src/utils/is-nil.ts#L1">utils/is-nil.ts:1</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
