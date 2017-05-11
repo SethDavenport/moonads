@@ -7,7 +7,7 @@ export abstract class Maybe<T> extends Monad<T> {
   abstract readonly map: <V>(f: Transform<T, V>) => Maybe<V>;
   abstract readonly get: () => T;
   abstract readonly fold: <V>(f: Transform<T, V>) => V;
-  abstract readonly ap: <V>(fm: Monad<Transform<T, V>>) => Maybe<V>;
+  abstract readonly ap: <V>(fm: Maybe<Transform<T, V>>) => Maybe<V>;
 
   abstract readonly orElse: (m: Maybe<T>) => Maybe<T>;
   abstract readonly orSome: (value: T) => T;
@@ -46,7 +46,7 @@ class None<T> extends Maybe<T> {
   readonly map = <V>(f: Transform<T, V>): Maybe<V> => None.of<V>();
   readonly get = (): T => null;
   readonly fold = <V>(f: Transform<T, V>): V => null;
-  readonly ap = <V>(fm: Monad<Transform<T, V>>): Maybe<V> => None.of<V>();
+  readonly ap = <V>(fm: Maybe<Transform<T, V>>): Maybe<V> => None.of<V>();
 
   readonly orElse = (m: Maybe<T>): Maybe<T> => None.of<T>();
   readonly orSome = (value: T): T => value;
