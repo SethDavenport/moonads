@@ -1,4 +1,4 @@
-import { Either } from './';
+import { Either, Left, Right } from './';
 
 describe('Either', () => {
   const left = Either.left(8);
@@ -52,5 +52,39 @@ describe('Either', () => {
     it('doesn\'t report itself as a left', () => expect(right.isLeft()).toBe(false));
     it('reports itself as a right', () => expect(right.isRight()).toBe(true));
     it('can be converted to a Some', () => expect(right.toMaybe().isNone()).toBe(false));
+  });
+
+  describe('fromNillable', () => {
+    it('creates a Left if the value is null', () =>
+      expect(Either
+        .fromNillable(null)
+        .equals(Left.of<any>(null))));
+
+    it('creates a Left if the value is undefined', () =>
+      expect(Either
+        .fromNillable(undefined)
+        .equals(Left.of<any>(undefined))));
+
+    it('creates a Right if the value is not nil', () =>
+      expect(Either
+        .fromNillable(3)
+        .equals(Right.of(3))));
+  });
+
+  describe('try', () => {
+    const explosionError = new Error('Boom!');
+    const explode = x => { throw explosionError };
+    const addOne = x => x + 1;
+
+    it('creates a Left if the operation explodes', () =>
+      expect(Either
+        .try(explode)(3)
+        .equals(Left.of(explosionError))));
+
+    it('creates a Right if the operation does not explode', () => {
+      expect(Either
+        .try(addOne)(3)
+        .equals(Right.of(4)));
+    });
   });
 });

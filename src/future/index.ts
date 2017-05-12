@@ -1,8 +1,6 @@
 import { Monad } from '../monad';
 import { Transform } from '../utils/transform';
 
-export type NodeStyleCallback<T> = (err, result: T) => void;
-
 export type AsyncOperation<T> = (
   reject: (any) => void,
   resolve: (T) => void) => void;

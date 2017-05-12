@@ -1,4 +1,5 @@
 import { Transform } from '../utils/transform';
+import { isNil } from '../utils/is-nil';
 import { Monad } from '../monad';
 import { Maybe } from '../maybe';
 
@@ -16,6 +17,18 @@ export abstract class Either<T> extends Monad<T> {
 
   static readonly left = <L>(value: L) => Left.of(value);
   static readonly right = <R>(value: R) => Right.of(value);
+  static readonly fromNillable = <V>(value: V) => isNil(value) ?
+    Left.of(value) :
+    Right.of(value)
+
+  static readonly try = <T, V>(f: Transform<T, V>) =>
+    (value: T): Either<V | Error> => {
+      try {
+        return Right.of(f(value));
+      } catch (error) {
+        return Left.of(error);
+      }
+    }
 }
 
 export class Left<T> extends Either<T> {
